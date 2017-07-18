@@ -1,0 +1,329 @@
+/* BODY */
+
+@font-face {
+	font-family: Enriqueta;
+	src: url(fonts/Enriqueta-Regular.ttf);
+}
+
+@font-face {
+	font-family: Questa; 
+	src: url(fonts/2-questa_grande_regular_31-webfont.eot);
+	src: url(fonts/2-questa_grande_regular_31-webfont.ttf) format('truetype'),
+    	 url(fonts/2-questa_grande_regular_31-webfont.woff) format('woff'),
+     	 url(fonts/2-questa_grande_regular_31-webfont.svg) format('svg');
+    /*police importée sur plusieurs formats pour eviter les problemes au niveau des navigateurs*/
+}
+
+html,
+body {
+    font-family: Questa, sans-serif;
+    height: 100%; width: 100%;
+    margin: 0;
+}
+
+/*ici on remplit les pages au maximum de ce qui est visible par l'utilisateur
+par la suite on mettra des arrière-plan pour chaque page*/
+
+#accueil,
+#form_lang,
+#comp_interet,
+#contact {
+    color: #FFF;
+    min-height: 100%; max-height: 100%;
+	min-width: 100% ; max-width: 100%;
+    position: relative;
+}
+
+.icone_home {
+	height: 100px; width: 100px;
+	position: absolute;
+	bottom: 40px; right: 40px;
+	z-index: 1;/*dans le cas où un bloc recouvre l'icone, cela permet de toujours pouvoir cliquer dessus*/
+} /* icone qui permet de revenir à la page d'accueil lorsqu'on clique dessus */
+
+/* ACCUEIL */
+
+#accueil {
+    background: url(backgrounds/bg17.jpg) 0/100% 100%;
+    /*on adapte la taille de l'arriere-plan à la page*/
+}
+
+/*ici on réalise le titre avec les infos complémentaires (adresse, permis...)*/
+
+#titre {
+    font-size: 30px;
+	position: absolute;
+    text-align: center;
+    top: 10%;
+    width: 100%;    
+}
+
+#titre span {
+	border: 1px solid #FFF;
+	font-size: 40px;
+	padding: 8px;
+}
+
+#infos {
+	display: inline-block;
+	font-size: 16px;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+}
+
+#infos li {
+	float: left;
+	padding: 0 30px;
+}
+
+#infos img {
+	width: 22px;
+}
+
+/* menu horizontal avec des boutons transparents */
+
+#menu { 
+	bottom: 10%;
+	position: absolute;
+	text-align: center;
+	width: 100%;
+}
+
+#navigation {
+	display: inline-block;
+	list-style-type: none;
+	padding: 0;
+	position: relative;
+	display: inline-block;
+}
+
+#navigation li {
+	float: left;
+	margin-right: 8px;
+}
+
+#navigation li a {
+	border: 1px solid lightgrey;
+	border-radius: 10px;
+	color: #e6ffff;
+	display: block;
+	font: italic bold 18px/60px Questa;
+	height: 60px;
+	min-width: 185px;/*afin que les 4 onglets puissent être visibles sur portable*/
+	text-align: center;
+	text-decoration: none;
+}
+
+#navigation li a:hover {
+	color: #4d94ff;
+}
+
+/* FORMATIONS ET LANGUES */
+
+#form_lang {
+    background: url(backgrounds/bg21.jpg) 0/100% 100%;
+}
+
+.droite, .gauche {
+	bottom: 10%; top: 5%;
+	overflow-y: auto; /*scroll si le bloc est trop grand*/
+	overflow-x:hidden;
+	position: absolute;
+	text-align: left;
+	width: 55%;
+}
+
+/* ce qui suit permet de modifier la barre de défilement mais ne fonctionne que sur Chrome
+* et Safari (sur les autres navigateurs ça reste au style par défaut) */
+
+.droite::-webkit-scrollbar, 
+.gauche::-webkit-scrollbar, 
+#contact_info::-webkit-scrollbar,
+#contact_form::-webkit-scrollbar {
+	width: 12px;
+	background-color: #cccccc;
+	border-radius: 10px;
+}
+.droite::-webkit-scrollbar-thumb, 
+.gauche::-webkit-scrollbar-thumb,
+#contact_info::-webkit-scrollbar-thumb,
+#contact_form::-webkit-scrollbar-thumb {
+	background-color: #4d94ff;
+	border-radius: 10px;
+}
+
+.droite::-webkit-scrollbar-track, 
+.gauche::-webkit-scrollbar-track,
+#contact_info::-webkit-scrollbar-track,
+#contact_form::-webkit-scrollbar-track {
+	border: 1px solid grey;
+	background-color: #cccccc;
+	border-radius: 10px;
+}
+
+.droite {
+	left: 50%;
+	width: 50%;
+}
+
+.sous_titre {
+	border-bottom: 2px solid #4d94ff;
+	font: 40px Enriqueta, sans-serif;
+	margin-right: 20px;
+	position: relative;
+	width: 95%;
+}
+
+.sous_titre:hover {
+	font-weight: bold;/*les titres sont mis en valeur au survol*/
+}
+
+.section {
+	list-style-type: disc;
+	margin: 0 40px 16px 0;
+	position: relative;
+	top: 5px;
+}
+
+.section h4 {
+	font-size: 1.3em;
+	margin-bottom: -4px;
+}
+
+.section p {
+	font-size: 1.1em;
+	margin-top: 5px;
+}
+
+.sub_infos {
+	font-size: .8em;
+	font-style: italic;
+}
+
+/* COMPETENCES ET CENTRES D'INTERETS*/
+
+#comp_interet {
+	background: url(backgrounds/bg24.jpg) 0/100% 100%;
+}
+
+/*pour un peu d'originalité, on prend l'arrière-plan précédent pivoté à 90° au préalable et on met le bloc à gauche*/
+
+#comp_interet .section,
+#comp_interet .sous_titre {
+	float: left;
+	margin-left: 40px;
+}
+
+/* CONTACT */
+
+#contact {
+	background: url(backgrounds/bg27.jpg) 0/100% 100%;
+}
+
+/*encore une fois, on scroll si on dépasse la taille et les positions imposées*
+*je n'ai pas réussi à mettre en place un mécanisme qui redimensionne automatiquement*
+*les deux blocs parallèles au zoom/dézoom*/
+
+#contact_info,
+#contact_form {
+	bottom: 15%; top: 8%;
+	font-size: 30px;
+	overflow: auto;
+	position: absolute;
+	text-align: left;
+	width: 45%;
+}
+	
+#contact_info {
+	left: 5%; right: 15%;
+}	
+
+#contact_form {
+	left: 55%;
+}
+
+#informations {
+	list-style-type: none;
+	position: relative;
+	top: 8px;
+}
+
+#informations a {
+	color: #FFF;
+	text-decoration: none;
+}
+
+#logos {
+	display: inline-block;
+	margin-left: 20px;
+	list-style-type: none;
+	position: relative;
+}
+
+#logos li {
+	float: left;
+	margin-right: 15px;
+}
+
+#logos img {
+	width: 60px;
+}
+
+#logos img:hover {
+	width: 70px;/*les logos grossissent au survol*/
+}
+
+/* Formulaire non fonctionnel, les champs ne sont pas envoyés au serveur*
+* la partie backend n'est pas demandée dans le travail à rendre */
+
+input[type=text],
+textarea {
+    border: 1px solid #d1d1d1;
+    border-radius: 4px;
+    margin: 6px auto 16px auto;
+    padding: 12px;
+    width: 75%;/*on attribue la même taille à tous les champs du formulaire*/
+}
+
+input[type=submit] {
+    background-color: #0080ff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #FFF;
+    padding: 12px 20px;
+    position: relative;
+}
+
+input[type=submit]:hover {
+    background-color: #39f;
+}
+
+input:focus,
+textarea:focus {
+	border: 2px solid #39f;/*champ sélectionné : bordure bleue*/
+}
+
+#popup {
+	display:none;
+	background-color: #39f;
+	border: 1px dotted #0080ff;
+	font-size: 25px;
+	padding: 10px;
+	position: absolute;
+	text-align: center;
+	top: 50px; right: 50px;
+	width: 90px;
+}
+
+#infoButton {
+	display: none;
+	position: absolute;
+	text-align: center;
+	background-color: #39f;
+	border: 1px dotted #0080ff;
+	padding: 6px;
+	font-size: 15px;
+}
